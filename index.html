@@ -1022,8 +1022,8 @@
                     <div class="wed_thin_titles">
                         <h2>“ Happy birthday to my Bo, Best wishes for you ”</h2>
         				<span style="opacity: 1">
-						<iframe src="sounds/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
-        					<audio autoplay loop controls>
+						<iframe src="sounds/silence.mp3" allow="autoplay" id="iframeAudio" style="display:none"></iframe>
+        					<audio autoplay loop controls id="playAudio">
    							 <source src="sounds/Nhat-Ky-Cua-Me.mp3" type="audio/mp3">
    						 	</audio>
    						</span> <br>
@@ -1041,7 +1041,15 @@
         <footer class="wed_footer"></footer>
     </section>
 </div>
-
+<script>
+	  var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    if(!isChrome){
+      $('#iframeAudio').remove()
+    }
+  else{
+     $('#playAudio').remove() //just to make sure that it will not have 2x audio in the background 
+  }
+</script>
 <script>
     /*  */
     var _wpcf7 = {
